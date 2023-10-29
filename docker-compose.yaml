@@ -1,0 +1,14 @@
+# specify version of docker
+version: '3.8'
+
+# specify service to be run in this container
+services:
+  zkpserver:
+    build: .
+    # map local file system into the application
+    volumes:
+      - ./:/zkp-server
+    environment:
+      - USER=abiodun
+    # specify the name of this container
+    container_name: zkpserver

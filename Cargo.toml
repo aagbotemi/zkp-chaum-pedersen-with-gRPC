@@ -1,0 +1,29 @@
+[package]
+name = "zkp-chaum-pedersen"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+hex = "0.4.3"
+# num-bigint = "0.4.4"
+num-bigint = { version = "0.4", features = ["rand"] }
+prost = "0.12.1"
+rand = "0.8.5"
+tokio = { version = "1.33.0", features = [
+    "macros",
+    "rt-multi-thread",
+] } # async rust runtime
+tonic = "0.10.2"
+
+[build-dependencies]
+tonic-build = "0.10.2"
+
+[[bin]]
+name = "server"
+path = "./src/server.rs"
+
+[[bin]]
+name = "client"
+path = "./src/client.rs"
